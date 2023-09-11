@@ -2,26 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+@import url('https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@100;400;500;700&display=swap');
+.app {
+	@apply z-10 w-full flex-center flex-col mx-auto sm:px-16 px-6 lg:px-4;
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.blue_gradient {
+	@apply bg-gradient-to-r from-cyan-800 via-sky-700 to-blue-500 bg-clip-text text-transparent;
 }
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.head_text {
+	@apply text-5xl lg:text-8xl font-extrabold leading-[1.15] text-slate-800 sm:text-6xl;
+}
+.desc {
+	@apply mt-5 text-lg text-gray-600 sm:text-xl max-w-2xl lg:text-3xl;
+}
+.dropdown {
+	@apply absolute left-[-24px] h-screen top-0 w-screen px-6 pb-20 bg-white flex flex-col gap-5 justify-between items-start z-10;
+}
+.dropdown_link {
+	@apply text-3xl font-chivo text-gray-700 hover:text-gray-500 font-light;
+}
+.menu_link {
+	@apply flex items-center justify-center text-3xl font-chivo text-gray-700 hover:text-gray-500 font-light;
+}
+.flex-center {
+	@apply flex justify-center items-center;
+}
+.flex-between {
+	@apply flex justify-between items-center;
 }
