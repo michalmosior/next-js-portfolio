@@ -3,13 +3,13 @@ import DecorationSpan from '../UI/DecorationSpan';
 import ProjectCard from './ProjectCard';
 
 const fetchProjects = async () => {
-	const response = await fetch('http://127.0.0.1:3000/api/projects');
+	const response = await fetch('/api/projects');
 	const projects: ProjectInterface[] = await response.json();
 	return projects;
 };
 
 const Projects: any = async () => {
-    const allProjects = await fetchProjects()
+	const allProjects = await fetchProjects();
 	return (
 		<section id='projects' className='section'>
 			<div className='max-w-screen-xl'>

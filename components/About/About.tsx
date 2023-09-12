@@ -3,7 +3,7 @@ import DecorationSpan from '../UI/DecorationSpan';
 import Image from 'next/image';
 
 const fetchSkills = async () => {
-	const response = await fetch('http://127.0.0.1:3000/api/skills');
+	const response = await fetch('/api/skills');
 	const skills: SkillInterface[] = await response.json();
 	return skills;
 };
