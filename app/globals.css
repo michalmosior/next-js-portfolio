@@ -3,6 +3,16 @@
 @tailwind utilities;
 
 @import url('https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@100;400;500;700&display=swap');
+.btn {
+	border-radius: 0.25rem;
+	padding: 0.5rem 1rem;
+	font-size: 0.75rem;
+	line-height: 1rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	outline: 2px solid transparent;
+	outline-offset: 2px;
+}
 .app {
 	@apply z-10 w-full flex-center flex-col mx-auto sm:px-16 px-6 lg:px-4;
 }
