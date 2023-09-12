@@ -24,6 +24,9 @@
 .menu_link {
 	@apply flex items-center justify-center text-3xl font-chivo text-gray-700 hover:text-gray-500 font-light;
 }
+.section_title {
+	@apply my-5 text-3xl leading-[1.15] text-black sm:text-6xl;
+}
 .flex-center {
 	@apply flex justify-center items-center;
 }
