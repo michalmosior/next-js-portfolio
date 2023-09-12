@@ -11,7 +11,7 @@ const fetchSkills = async () => {
 const About: any = async () => {
 	const skills = await fetchSkills();
 	return (
-		<section id='about' className='section'>
+		<section id='aboutme' className='section'>
 			<div className='max-w-screen-xl'>
 				<h2 className='section_title py-5'>
 					<DecorationSpan text='About' /> me
