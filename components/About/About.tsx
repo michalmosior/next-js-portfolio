@@ -4,8 +4,12 @@ import Image from 'next/image';
 
 const fetchSkills = async () => {
 	const response = await fetch(`${process.env.API_URL}/api/skills`);
-	const skills: SkillInterface[] = await response.json();
-	return skills;
+	try {
+		const skills: SkillInterface[] = await response.json();
+		return skills;
+	} catch (err) {
+		console.log('error:', err);
+	}
 };
 
 const About: any = async () => {
@@ -44,7 +48,7 @@ const About: any = async () => {
 					<div className='flex-center flex-col lg:w-1/2'>
 						<h3 className='text-2xl mb-4'>Tech stack</h3>
 						<ul className='list-none flex-center flex-row flex-wrap w-full gap-5'>
-							{skills.map((skill) => {
+							{skills!.map((skill) => {
 								return (
 									<li
 										className='flex flex-col items-center justify-center mb-3 w-1/5'
