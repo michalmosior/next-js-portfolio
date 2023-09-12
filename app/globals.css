@@ -37,6 +37,9 @@
 .section_title {
 	@apply my-5 text-3xl leading-[1.15] text-black sm:text-6xl;
 }
+.project_card {
+	@apply w-full max-w-xl lg:max-w-none flex flex-col lg:flex-row lg:odd:flex-row-reverse rounded overflow-hidden shadow-lg bg-white lg:min-h-[26rem] gap-6 lg:p-8 lg:gap-8;
+}
 .flex-center {
 	@apply flex justify-center items-center;
 }
