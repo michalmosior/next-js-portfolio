@@ -1,7 +1,7 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import { Chivo_Mono } from 'next/font/google';
-import Nav from './components/Navigation/Nav';
+import Nav from '../components/Navigation/Nav';
 
 const ChivoMono = Chivo_Mono({ subsets: ['latin'] });
 
