@@ -1,9 +1,9 @@
 import Skill from '@/models/skills';
 import { connectToDB } from '@/lib/mongoose';
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { SkillInterface } from '@/types/types';
 
-export const GET = async (request: Request) => {
+export const GET = async (request: NextRequest) => {
 	try {
 		await connectToDB();
 		const skills: SkillInterface[] = await Skill.find();
