@@ -2,23 +2,23 @@ import { ProjectInterface } from '@/types/types';
 import DecorationSpan from '../UI/DecorationSpan';
 import ProjectCard from './ProjectCard';
 
-const Projects: any = async () => {
-	const fetchProjects = async () => {
-		try {
-			const response = await fetch(`${process.env.API_URL}/api/projects`, {
-				cache: 'no-store',
-			});
+const fetchProjects = async () => {
+	try {
+		const response = await fetch(`${process.env.API_URL}/api/projects`, {
+			cache: 'no-store',
+		});
 
-			if (!response.ok) {
-				throw new Error('Failed to fetch projects');
-			}
-			return response.json();
-		} catch (err) {
-			console.log('error loading projects', err);
+		if (!response.ok) {
+			throw new Error('Failed to fetch projects');
 		}
-	};
+		return response.json();
+	} catch (err) {
+		console.log('error loading projects', err);
+	}
+};
 
-	const { projects } = await fetchProjects();
+const Projects: any = async () => {
+	const projects = await fetchProjects();
 	return (
 		<section id='projects' className='section'>
 			<div className='max-w-screen-xl'>

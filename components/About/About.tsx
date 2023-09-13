@@ -2,22 +2,23 @@ import { SkillInterface } from '@/types/types';
 import DecorationSpan from '../UI/DecorationSpan';
 import Image from 'next/image';
 
-const About: any = async () => {
-	const fetchSkills = async () => {
-		try {
-			const response = await fetch(`${process.env.API_URL}/api/skills`, {
-				cache: 'no-store',
-			});
+const fetchSkills = async () => {
+	try {
+		const response = await fetch(`${process.env.API_URL}/api/skills`, {
+			cache: 'no-store',
+		});
 
-			if (!response.ok) {
-				throw new Error('Failed to fetch skills');
-			}
-			return response.json();
-		} catch (err) {
-			console.log('error loading skills', err);
+		if (!response.ok) {
+			throw new Error('Failed to fetch skills');
 		}
-	};
-	const { skills } = await fetchSkills();
+		return response.json();
+	} catch (err) {
+		console.log('error loading skills', err);
+	}
+};
+
+const About: any = async () => {
+	const skills = await fetchSkills();
 	return (
 		<section id='aboutme' className='section'>
 			<div className='max-w-screen-xl'>

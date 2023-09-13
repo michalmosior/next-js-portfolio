@@ -7,7 +7,7 @@ export const GET = async (request: NextRequest) => {
 	try {
 		await connectToDB();
 		const projects: ProjectInterface[] = await Project.find();
-		return NextResponse.json({ projects });
+		return NextResponse.json(projects);
 	} catch (error) {
 		return new NextResponse('Failed to fetch all projects', { status: 500 });
 	}
