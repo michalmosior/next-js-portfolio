@@ -3,17 +3,22 @@ import DecorationSpan from '../UI/DecorationSpan';
 import ProjectCard from './ProjectCard';
 
 const fetchProjects = async () => {
-	const response = await fetch(`${process.env.API_URL}/api/projects`);
 	try {
-		const projects: ProjectInterface[] = await response.json();
-		return projects;
+		const response = await fetch(`${process.env.API_URL}/api/projects`, {
+			cache: 'no-store',
+		});
+
+		if (!response.ok) {
+			throw new Error('Failed to fetch projects');
+		}
+		return response.json();
 	} catch (err) {
-		console.log('error:', err);
+		console.log('error loading projects', err);
 	}
 };
 
 const Projects: any = async () => {
-	const allProjects = await fetchProjects();
+	const { projects } = await fetchProjects();
 	return (
 		<section id='projects' className='section'>
 			<div className='max-w-screen-xl'>
@@ -21,16 +26,18 @@ const Projects: any = async () => {
 					My <DecorationSpan text='projects' />
 				</h2>
 				<ul className='flex-center flex-col gap-5'>
-					{allProjects!.map((project) => (
-						<ProjectCard
-							key={project._id}
-							title={project.title}
-							tag={project.tag}
-							description={project.description}
-							image={project.image}
-							category={project.category}
-						/>
-					))}
+					{projects.map((project: any) => {
+						return (
+							<ProjectCard
+								key={project._id}
+								title={project.title}
+								tag={project.tag}
+								description={project.description}
+								image={project.image}
+								category={project.category}
+							/>
+						);
+					})}
 				</ul>
 			</div>
 		</section>

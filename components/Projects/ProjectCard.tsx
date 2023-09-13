@@ -2,16 +2,18 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ProjectInterface } from '@/types/types';
 
-const ProjectCard = ({ title, tag, description, image, category }: ProjectInterface) => {
+const ProjectCard = ({
+	title,
+	tag,
+	description,
+	image,
+	category,
+}: ProjectInterface) => {
 	return (
 		<li className='project_card'>
 			<div className='flex items-center justify-center w-full h-full lg:w-[56%] shadow-lg'>
 				<div className='relative pt-[56.25%] lg:pt-0 lg:h-96 w-full lg:rounded-md overflow-hidden'>
-					<Image
-						src={image}
-						alt={title}
-						fill={true}
-					></Image>
+					<Image src={image} alt={title} fill={true}></Image>
 				</div>
 			</div>
 			<div className='w-full lg:w-[44%] flex flex-col justify-between p-6 sm:p-8 lg:p-4 '>

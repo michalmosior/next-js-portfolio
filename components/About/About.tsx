@@ -3,17 +3,22 @@ import DecorationSpan from '../UI/DecorationSpan';
 import Image from 'next/image';
 
 const fetchSkills = async () => {
-	const response = await fetch(`${process.env.API_URL}/api/skills`);
 	try {
-		const skills: SkillInterface[] = await response.json();
-		return skills;
+		const response = await fetch(`${process.env.API_URL}/api/skills`, {
+			cache: 'no-store',
+		});
+
+		if (!response.ok) {
+			throw new Error('Failed to fetch skills');
+		}
+		return response.json();
 	} catch (err) {
-		console.log('error:', err);
+		console.log('error loading skills', err);
 	}
 };
 
 const About: any = async () => {
-	const skills = await fetchSkills();
+	const { skills } = await fetchSkills();
 	return (
 		<section id='aboutme' className='section'>
 			<div className='max-w-screen-xl'>
@@ -48,7 +53,7 @@ const About: any = async () => {
 					<div className='flex-center flex-col lg:w-1/2'>
 						<h3 className='text-2xl mb-4'>Tech stack</h3>
 						<ul className='list-none flex-center flex-row flex-wrap w-full gap-5'>
-							{skills!.map((skill) => {
+							{skills.map((skill: any) => {
 								return (
 									<li
 										className='flex flex-col items-center justify-center mb-3 w-1/5'
