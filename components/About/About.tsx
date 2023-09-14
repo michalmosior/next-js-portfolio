@@ -4,9 +4,7 @@ import Image from 'next/image';
 
 const fetchSkills = async () => {
 	try {
-		const response = await fetch(`${process.env.API_URL}/api/skills`, {
-			cache: 'no-store',
-		});
+		const response = await fetch(`${process.env.API_URL}/api/skills`);
 
 		if (!response.ok) {
 			throw new Error('Failed to fetch skills');
@@ -18,7 +16,7 @@ const fetchSkills = async () => {
 };
 
 const About: any = async () => {
-	const skills = await fetchSkills();
+	const { skills } = await fetchSkills();
 	return (
 		<section id='aboutme' className='section'>
 			<div className='max-w-screen-xl'>
