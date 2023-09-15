@@ -2,7 +2,12 @@ import DecorationSpan from '../UI/DecorationSpan';
 import ProjectCard from './ProjectCard';
 
 const fetchProjects = async () => {
-	const response = await fetch(`${process.env.API_URL}/api/projects`);
+	const response = await fetch(`${process.env.API_URL}/api/projects`, {
+		headers: {
+			'Content-Type': 'application/json',
+			// 'Content-Type': 'application/x-www-form-urlencoded',
+		},
+	});
 	const projects = await response.json();
 	if (!response.ok) {
 		throw new Error('Failed to fetch projects');
