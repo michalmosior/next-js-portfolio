@@ -2,7 +2,7 @@ import DecorationSpan from '../UI/DecorationSpan';
 import Image from 'next/image';
 
 const fetchSkills = async () => {
-	const response = await fetch(`michalmosior.vercel.app/api/skills`, {
+	const response = await fetch(`https://michalmosior.vercel.app/api/skills`, {
 		headers: {
 			'Content-Type': 'application/json',
 			// 'Content-Type': 'application/x-www-form-urlencoded',
