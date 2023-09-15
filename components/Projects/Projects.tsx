@@ -2,7 +2,7 @@ import DecorationSpan from '../UI/DecorationSpan';
 import ProjectCard from './ProjectCard';
 
 const fetchProjects = async () => {
-	const response = await fetch(`${process.env.API_URL}/api/projects`, {
+	const response = await fetch(`michalmosior.vervel.app/api/projects`, {
 		headers: {
 			'Content-Type': 'application/json',
 			// 'Content-Type': 'application/x-www-form-urlencoded',
