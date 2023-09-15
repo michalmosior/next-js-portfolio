@@ -3,10 +3,11 @@ import ProjectCard from './ProjectCard';
 
 const fetchProjects = async () => {
 	const response = await fetch(`${process.env.API_URL}/api/projects`);
+	const projects = await response.json();
 	if (!response.ok) {
 		throw new Error('Failed to fetch projects');
 	}
-	return response.json();
+	return projects;
 };
 
 const Projects: any = async () => {
