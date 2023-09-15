@@ -16,7 +16,7 @@ const fetchProjects = async () => {
 };
 
 const Projects: any = async () => {
-	const projects = await fetchProjects();
+	const { projects } = await fetchProjects();
 	return (
 		<section id='projects' className='section'>
 			<div className='max-w-screen-xl'>

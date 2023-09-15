@@ -16,7 +16,7 @@ const fetchSkills = async () => {
 };
 
 const About: any = async () => {
-	const skills = await fetchSkills();
+	const { skills } = await fetchSkills();
 	return (
 		<section id='aboutme' className='section'>
 			<div className='max-w-screen-xl'>
