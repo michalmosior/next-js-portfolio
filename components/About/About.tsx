@@ -2,9 +2,7 @@ import DecorationSpan from '../UI/DecorationSpan';
 import Image from 'next/image';
 
 const fetchSkills = async () => {
-	const response = await fetch(
-		`https://michalmosior-nqkwb6joj-michalmosior-gmailcom.vercel.app/api/skills`
-	);
+	const response = await fetch(`https://michalmosior.vercel.app/api/skills`);
 	const skills = await response.json();
 	if (!response.ok) {
 		throw new Error('Failed to fetch skills');
