@@ -11,7 +11,7 @@ const fetchProjects = async () => {
 };
 
 const Projects: any = async () => {
-	const projects = await fetchProjects();
+	const allProjects = await fetchProjects();
 	return (
 		<section id='projects' className='section'>
 			<div className='max-w-screen-xl'>
@@ -19,7 +19,7 @@ const Projects: any = async () => {
 					My <DecorationSpan text='projects' />
 				</h2>
 				<ul className='flex-center flex-col gap-5'>
-					{projects.map((project: any) => {
+					{allProjects.map((project: any) => {
 						return (
 							<ProjectCard
 								key={project._id}

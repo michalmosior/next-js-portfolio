@@ -11,7 +11,7 @@ const fetchSkills = async () => {
 };
 
 const About: any = async () => {
-	const skills = await fetchSkills();
+	const allSkills = await fetchSkills();
 	return (
 		<section id='aboutme' className='section'>
 			<div className='max-w-screen-xl'>
@@ -46,7 +46,7 @@ const About: any = async () => {
 					<div className='flex-center flex-col lg:w-1/2'>
 						<h3 className='text-2xl mb-4'>Tech stack</h3>
 						<ul className='list-none flex-center flex-row flex-wrap w-full gap-5'>
-							{skills.map((skill: any) => {
+							{allSkills.map((skill: any) => {
 								return (
 									<li
 										className='flex flex-col items-center justify-center mb-3 w-1/5'
