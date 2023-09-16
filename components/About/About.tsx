@@ -1,16 +1,15 @@
 import DecorationSpan from '../UI/DecorationSpan';
 import Image from 'next/image';
 
-const fetchSkills = async () => {
-	const response = await fetch(`${process.env.API_URL}/api/skills`);
-	const skills = await response.json();
-	if (!response.ok) {
-		throw new Error('Failed to fetch skills');
-	}
-	return skills;
-};
-
 const About: any = async () => {
+	const fetchSkills = async () => {
+		const response = await fetch(`${process.env.API_URL}/api/skills`);
+		const skills = await response.json();
+		if (!response.ok) {
+			throw new Error('Failed to fetch skills');
+		}
+		return skills;
+	};
 	const allSkills = await fetchSkills();
 	return (
 		<section id='aboutme' className='section'>

@@ -1,16 +1,15 @@
 import DecorationSpan from '../UI/DecorationSpan';
 import ProjectCard from './ProjectCard';
 
-const fetchProjects = async () => {
-	const response = await fetch(`${process.env.API_URL}/api/projects`);
-	const projects = await response.json();
-	if (!response.ok) {
-		throw new Error('Failed to fetch projects');
-	}
-	return projects;
-};
-
 const Projects: any = async () => {
+	const fetchProjects = async () => {
+		const response = await fetch(`${process.env.API_URL}/api/projects`);
+		const projects = await response.json();
+		if (!response.ok) {
+			throw new Error('Failed to fetch projects');
+		}
+		return projects;
+	};
 	const allProjects = await fetchProjects();
 	return (
 		<section id='projects' className='section'>
