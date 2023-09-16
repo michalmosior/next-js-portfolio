@@ -1,7 +1,14 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getAllProjects } from '@/lib/projects';
+import { connectToDB } from '@/lib/mongoose';
+import { ProjectInterface } from '@/types/types';
+import Project from '@/models/project';
 
 export const GET = async (request: NextRequest, response: NextResponse) => {
-	const projects = await getAllProjects();
-	return NextResponse.json({ projects });
+	try {
+		await connectToDB();
+		const projects: ProjectInterface[] = await Project.find({});
+		return new NextResponse(JSON.stringify(projects), { status: 200 });
+	} catch {
+		return new NextResponse('Failed to fetch all projects', { status: 500 });
+	}
 };

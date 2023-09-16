@@ -2,12 +2,7 @@ import DecorationSpan from '../UI/DecorationSpan';
 import ProjectCard from './ProjectCard';
 
 const fetchProjects = async () => {
-	const response = await fetch(`https://michalmosior.vercel.app/api/projects`, {
-		headers: {
-			'Content-Type': 'application/json',
-			// 'Content-Type': 'application/x-www-form-urlencoded',
-		},
-	});
+	const response = await fetch(`${process.env.API_URL}/api/projects`);
 	const projects = await response.json();
 	if (!response.ok) {
 		throw new Error('Failed to fetch projects');
@@ -16,7 +11,7 @@ const fetchProjects = async () => {
 };
 
 const Projects: any = async () => {
-	const { projects } = await fetchProjects();
+	const projects = await fetchProjects();
 	return (
 		<section id='projects' className='section'>
 			<div className='max-w-screen-xl'>
