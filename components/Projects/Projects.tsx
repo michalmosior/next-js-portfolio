@@ -3,7 +3,11 @@ import ProjectCard from './ProjectCard';
 
 const fetchProjects = async () => {
 	const response = await fetch(
-		`${process.env.NEXT_PUBLIC_API_URL}/api/projects`
+		`${process.env.NEXT_PUBLIC_API_URL}/api/projects`,
+		{
+			method: 'GET',
+			headers: { 'Content-Type': 'application/json' },
+		}
 	);
 	const projects = await response.json();
 	if (!response.ok) {
