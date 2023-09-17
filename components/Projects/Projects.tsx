@@ -2,7 +2,9 @@ import DecorationSpan from '../UI/DecorationSpan';
 import ProjectCard from './ProjectCard';
 
 const fetchProjects = async () => {
-	const response = await fetch(`https://michalmosior.vercel.app/api/projects`);
+	const response = await fetch(
+		`${process.env.NEXT_PUBLIC_API_URL}/api/projects`
+	);
 	const projects = await response.json();
 	if (!response.ok) {
 		throw new Error('Failed to fetch projects');
