@@ -8,7 +8,7 @@ export const GET = async (request: NextRequest, response: NextResponse) => {
 		await connectToDB();
 		const skills: SkillInterface[] = await Skill.find({});
 		/*return new NextResponse(JSON.stringify(skills), { status: 200 });*/
-		return NextResponse.json(skills);
+		return new NextResponse(JSON.stringify(skills), { status: 200 });
 	} catch {
 		return new NextResponse('Failed to fetch all skills', { status: 500 });
 	}
