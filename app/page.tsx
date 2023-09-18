@@ -6,8 +6,8 @@ const Home = async () => {
 	return (
 		<>
 			<Header />
-			<About />
-			<Projects />
+			{/*<About />
+			<Projects />*/}
 		</>
 	);
 };
