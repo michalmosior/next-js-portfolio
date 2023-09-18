@@ -25,6 +25,9 @@
 .desc {
 	@apply mt-5 text-lg text-gray-600 sm:text-xl max-w-2xl lg:text-3xl;
 }
+.description{
+	@apply mt-5 text-lg sm:text-xl max-w-2xl;
+}
 .dropdown {
 	@apply absolute left-[-24px] h-screen top-0 w-screen px-6 pb-20 bg-white flex flex-col gap-5 justify-between items-start z-10;
 }
@@ -33,6 +36,9 @@
 }
 .menu_link {
 	@apply flex items-center justify-center text-3xl font-chivo text-gray-700 hover:text-gray-500 font-light;
+}
+.section{
+	@apply pt-10 pb-10 md:pt-20 md:pb-20;
 }
 .section_title {
 	@apply my-5 text-3xl leading-[1.15] text-black sm:text-6xl;
